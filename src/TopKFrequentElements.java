@@ -86,7 +86,7 @@ public class TopKFrequentElements {
         //now to get the top K elements traverse the freqValArr from end
         int[] ans = new int[k];
         int count = 0;
-        for (int i = freqValArr.length-1; i > 0 && count<k; i--, count++) {
+        for (int i = freqValArr.length-1; i > 0 && count<k; i--) {
             if (freqValArr[i]!=null) {
                 Iterator<Integer> it = freqValArr[i].iterator();
                 while (it.hasNext() && count<k) {
