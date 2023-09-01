@@ -40,24 +40,20 @@ class Solution {
 
             String token = tokens[i];
 
-            if(isOperator(token)==true){
-                System.out.println("Inside if");
+            if(isOperator(token)){
+                // System.out.println("Inside if");
                 int num2 = st.pop();
                 int num1 = st.pop();
                 int result = solve(num1, num2, token);
-                System.out.println("res = "+result);
+                // System.out.println("res = "+result);
 
                 st.push(result);
             }
             else{
-                int asNum = Integer.MIN_VALUE;
-                try{
-                asNum = Integer.parseInt(token);
+                
+                int asNum = Integer.parseInt(token);
                 st.push(asNum);
-                }
-                catch(Exception e){
-                    System.out.println(e);
-                }
+               
             }
 
         }
@@ -71,7 +67,6 @@ class Solution {
         return mySolution(tokens);
     }
 }
-
 public class EvaluateReversePolishNotation {
     public static void main(String[] args) {
         Solution o = new Solution();
