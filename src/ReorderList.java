@@ -53,12 +53,73 @@ public class ReorderList {
 
     }
 
+    private static void neetcodeSolution(ListNode head){
+
+        ListNode s = head, f = head.next;
+
+        //move the fast and slow pointers
+        while (f!=null) {
+
+            // f moves twice as fast as s
+            if (f.next!=null) {
+                f = f.next.next;
+            }
+            else{
+                f=null;
+            }
+            s = s.next;
+        }
+
+        //s has reached the midpoint of the LL, start reversing from s
+        if(s.next==null){
+            //this is if there are <=2 elements in LL in which case the LL is arelardy in the correct order according the question
+            return;
+        }
+        ListNode curr = s, currNext = s.next, currNextNext = s.next.next; //end keeps track of end of the LL for next loop
+        while (currNext!=null) {
+            
+            
+            currNext.next = curr;
+
+            curr = currNext;
+            currNext = currNextNext;
+            if(currNext!=null) currNextNext = currNext.next;
+        }
+
+        s.next = null; //make the mid point null since we have reversed the LL
+        ListNode end = curr; //if(currNext==null) the loop wouldve stopped and curr would be pointing to a node before currNext was node, ie a end node
+        
+        //now start popping ListNodes from end
+        ListNode p = head;
+        while (p!=s) {
+            
+            ListNode tmpNode = end;
+            if(end!=s) end = end.next;
+            
+            tmpNode.next = p.next;
+            p.next = tmpNode;
+            
+            p = tmpNode.next;
+        } 
+
+       
+        //terminate the reordered LL
+        p.next = null;
+        
+
+
+
+    }
+
     public static void reorderList(ListNode head) {
-        mySolution(head);
+        // mySolution(head);
+        neetcodeSolution(head);
     }
 
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 3, 4, 5 };
+        // int[] arr = { 1, 2, 3, 4, 5 };
+        // int[] arr = {1,2,3,4};
+        int[] arr = {1};
 
         ListNode head = generateLinkedList(arr);
 
