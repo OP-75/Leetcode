@@ -22,43 +22,43 @@ public class CopyListwithRandomPointer {
         // oldNode: newNode mapping
 
 
-        Node p = head, prevNode = null, newHead=null;
-        while (p!=null) {
+        Node oldNode = head, prevNode = null, newHead=null;
+        while (oldNode!=null) {
             
-            int val = p.val;
+            int val = oldNode.val;
 
             Node newNode = new Node(val);
 
-            mapping.put(p, newNode);
+            mapping.put(oldNode, newNode);
 
             if(prevNode==null){
                 newHead = newNode;
                 prevNode = newNode;
-                p = p.next;
+                oldNode = oldNode.next;
                 continue;
             }
             else{
                 prevNode.next = newNode;
-                p = p.next;
+                oldNode = oldNode.next;
                 prevNode = prevNode.next;
             }
 
         }
 
 
-        p = head;
-        while (p!=null) {
+        oldNode = head;
+        while (oldNode!=null) {
             
-            Node correspondingNode = mapping.get(p);
+            Node correspondingNode = mapping.get(oldNode);
 
-            if(p.random==null){
+            if(oldNode.random==null){
                 correspondingNode.random=null;
             } 
             else{
-                correspondingNode.random = mapping.get(p.random);
+                correspondingNode.random = mapping.get(oldNode.random);
             }
 
-            p = p.next;
+            oldNode = oldNode.next;
 
         }
 
