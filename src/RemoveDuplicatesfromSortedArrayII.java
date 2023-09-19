@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class RemoveDuplicatesfromSortedArrayII {
 
     //btw the optimal solution for this problem would be by using binary search to seacrch the start & end of the repeating sequences
+    // this solution takes alot of time if the array is filled with many of same elements
 
     private int mySolution(int[] nums){
         //remember array is sorted
