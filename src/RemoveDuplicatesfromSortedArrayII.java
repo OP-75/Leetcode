@@ -1,8 +1,8 @@
 import java.util.Arrays;
 
 public class RemoveDuplicatesfromSortedArrayII {
-
-    //btw the optimal solution for this problem would be by using binary search to seacrch the start & end of the repeating sequences
+    
+    // btw the optimal solution for this problem would be by using binary search to seacrch the start & end of the repeating sequences, once u get this u can shift the elements from the "end" by the distance between start & end!.
     // this solution takes alot of time if the array is filled with many of same elements
 
     private int mySolution(int[] nums){
