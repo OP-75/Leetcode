@@ -40,11 +40,15 @@ public class InterleavingString {
             isInterleaving = recursiveDP(c1, c2, c3, i, j+1, k+1, memo);
         }
 
+        if (isInterleaving) {
+            return isInterleaving;
+        }
+
         if (i<c1.length && j<c2.length) {
             memo[i][j] = -1;
         }        
 
-        return isInterleaving;
+        return false;
     }
 
     public static void main(String[] args) {
