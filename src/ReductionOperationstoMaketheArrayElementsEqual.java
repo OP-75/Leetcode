@@ -156,6 +156,12 @@ public class ReductionOperationstoMaketheArrayElementsEqual {
         int[] nums = new int[] {5,1,3};
         System.out.println(o.reductionOperations(nums));
 
+        //better comments
+        // ? this is better comments question
+        // ! whtddddf
+        // rionvoier
+        // TODO: to do something
+
     }
     
 }
