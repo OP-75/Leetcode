@@ -69,4 +69,27 @@ public class SumofAbsoluteDifferencesinaSortedArray {
         return result;
     }
 
+    private int[] sarthakSolution(int[] nums){
+        //get sum
+        int sum = 0;
+        for(int i : nums) sum+=i;
+
+        int[] ans = new int[nums.length];
+
+        int leftSum = 0;
+        for(int i=0; i<nums.length; i++){
+            leftSum += nums[i];
+            int rightSum = sum-leftSum;
+            int leftLength = i+1;
+            int rightLength = nums.length-i-1;
+
+            //x*(n-1) - sigma(arr[0 to n-1]) 
+            ans[i] = (nums[i]*leftLength) - leftSum;
+            
+            //sigma(arr[n+1 to len]) - x*(len-n-1)
+            ans[i] += rightSum - (nums[i]*rightLength);
+        }
+        return ans;
+    }
+
 }
